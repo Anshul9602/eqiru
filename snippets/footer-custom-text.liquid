@@ -1,0 +1,67 @@
+<style>
+    .heading1 {
+        color: #1A3F47;
+        font-family: 'Lato';
+        font-size: 20px;
+        letter-spacing: 0.1rem;
+    }
+
+    .site-footer a {
+        color: #000000;
+        font-family: 'Lato';
+    }
+
+    .footer__collapsible p {
+        font-family: 'Lato';
+        color: #000000;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        /* CSS for mobile view */
+        .site-footer {
+            text-align: left;
+            /* Left-align the footer content on mobile */
+        }
+    }
+</style>
+{% if block.settings.show_footer_title %}
+<p class="h4 footer__title small--hide heading1">{{ block.settings.title }}</p>
+{% endif %}
+<div id="Footer-{{ block.id }}">
+    <div class="collapsible-content__inner small--hide">
+        <div class="footer__collapsible">
+            {% if block.settings.image != blank %}
+            <div class="image-wrap text-spacing"
+                style="height: 0; padding-bottom: {{ 100 | divided_by: block.settings.image.aspect_ratio }}%;">
+                {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                <img class="lazyload" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1600]"
+                    data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto" role="presentation"
+                    alt="{{ block.settings.image.alt }}">
+                <noscript>
+                    <img class="lazyloaded" src="{{ block.settings.image | img_url: '400x' }}"
+                        alt="{{ block.settings.image.alt }}">
+                </noscript>
+            </div>
+            {% endif %}
+            {{ block.settings.text }}
+        </div>
+    </div>
+    <div class="collapsible-content__inner medium-up--hide">
+        <div class="mobm" style="display: flex;justify-content: space-between;">
+            <div class="footer__collapsible" style="width: 45%;">
+                <p>Our Story</p>
+                <p>Gifting Solutions</p>
+                <p>Customization &amp; Personalisation</p>
+            </div>
+            <div class="footer__collapsible" style="width: 45%;">
+
+                <p><a href="/pages/contact" title="Contact">Contact Us</a></p>
+                <p><a href="/pages/privacy-policy" title="PRIVACY POLICY">Privacy Policy</a></p>
+                <p><a href="/pages/shipping-details" title="Shipping Details">Shipping &amp; Return</a></p>
+                <p><a href="/pages/terms-conditions" title="TERMS &amp; CONDITIONS">Terms &amp; Conditions</a></p>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,143 @@
+<script
+  src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
+></script>
+<link
+  href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+  rel="stylesheet"
+>
+{% style %}
+  .onimg{
+    position: absolute !important;
+    bottom:10%;
+    left: 5%;
+  }
+  .mw1 .splide__arrow{
+    display:none;
+  }
+  .mw1 .splide__pagination {
+    display:none;
+  }
+  .onimg1{
+    position: absolute !important;
+    bottom:20%;
+    left:15%;
+  }
+  .mw1{
+        height: 80px;
+display:none;
+  }
+  .mw1 li img{
+    border-radius: 35px;
+  }
+  @media screen and (max-width: 768px) {
+    .mw1 {
+     
+display:block !important;
+       
+    }
+  }
+{% endstyle %}
+{% if section.settings.divider %}
+  <div class="section--divider">
+{% endif %}
+
+<div class="mw1" style="width: 91%;margin: 15px 0 0 9%;">
+  <section class="splide top1" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide">
+          <img
+            style="width:70px;height:70px"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_2886_2.png?v=1692178190"
+            alt="Slider Image"
+          >
+         
+        </li>
+        
+          
+       
+        <li class="splide__slide">
+          <img
+            style="width:70px;height:70px"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_3248_4.png?v=1692178190"
+            alt="Slider Image"
+          >
+          
+        </li>
+        <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
+          <img
+            style="width:70px;height:70px"
+            class="relative"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_2849_3.png?v=1692178190"
+            alt="Slider Image"
+          >
+         
+        </li>
+         <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
+          <img
+            style="width:70px;height:70px"
+            class="relative"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_2849_3.png?v=1692178190"
+            alt="Slider Image"
+          >
+         
+        </li>
+         <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
+          <img
+            style="width:70px;height:70px"
+            class="relative"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_2849_3.png?v=1692178190"
+            alt="Slider Image"
+          >
+         
+        </li>
+         <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
+          <img
+            style="width:70px;height:70px"
+            class="relative"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_2849_3.png?v=1692178190"
+            alt="Slider Image"
+          >
+         
+        </li>
+         <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
+          <img
+            style="width:70px;height:70px"
+            class="relative"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_2849_3.png?v=1692178190"
+            alt="Slider Image"
+          >
+         
+        </li>
+      </ul>
+    </div>
+  </section>
+  <br>
+</div>
+{% if section.settings.divider %}
+  </div>
+{% endif %}
+<script>
+    var splide = new Splide( '.top1', {
+    perPage: 4,
+      perMove: 1,
+    rewind : true,
+      gap : '1.5rem',
+      breakpoints: {
+              640: {
+                perPage: 5,
+
+              },
+              767: {
+                perPage: 4,
+
+              },
+              1024: {
+                perPage: 5,
+
+              },
+            },
+  } );
+
+  splide.mount();
+</script>

@@ -1,0 +1,30 @@
+{% section 'collection-header' %}
+
+<div id="CollectionAjaxResult" class="collection-content">
+  <div id="CollectionAjaxContent">
+    <div class="page-width">
+      <div class="grid">
+        <div class="grid__item medium-up--one-fifth grid__item--sidebar">
+          {% section 'collection-sidebar' %}
+        </div>
+        <div class="grid__item medium-up--four-fifths grid__item--content">
+          {% section 'collection-promotions' %}
+          <div class="collection-grid__wrapper">
+            {% section 'collection-template' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  /* Make every 3rd product width 50% */
+.grid-item:nth-child(3n) {
+  width: 50%;
+}
+
+/* Make every 4th product width 50% */
+.grid-item:nth-child(4n) {
+  width: 50%;
+}
+</style>{% include 'wiser_trending' %}{% include 'wiser_recentview' %}{% include 'wiser_newarrivals' %}{% include 'wiser_featured' %}{% include 'wiser_topselling' %}{% include 'wiser_recent_related' %}

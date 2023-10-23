@@ -1,0 +1,25 @@
+{%- assign link_count = 0 -%}
+{% for link in main_menu.links %}
+  {%- assign link_count = link_count | plus: 1 -%}
+{% endfor %}
+{%- assign link_count_half = link_count | divided_by: 1 -%}
+
+<div
+  class="header-item header-item--logo-split"
+  role="navigation"
+  aria-label="Primary">
+  <div class="header-item header-item--split-right">
+    <div class="site-nav{% unless section.settings.main_menu_alignment == 'center-drawer' %} {% endunless %}">
+            <button
+              type="button"
+              class="site-nav__link site-nav__link--icon js-drawer-open-nav"
+              aria-controls="NavDrawer"
+            >
+              <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/lines.png?v=1696851926" width="50"alt="">
+              <span class="icon__fallback-text">{{ 'general.drawers.navigation' | t }}</span>
+            </button>
+          </div>
+  </div>
+  <div class="header-item header-item--logo">
+    {% include 'header-logo-block' %}
+  </div>

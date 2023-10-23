@@ -1,0 +1,96 @@
+<script
+  src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
+></script>
+<link
+  href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+  rel="stylesheet"
+>
+{% style %}
+  .onimg{
+    position: absolute !important;
+    bottom:3%;
+    left: 5%;
+  }
+  .onimg1{
+    position: absolute !important;
+    bottom:4%;
+    left:12%;
+    
+  }
+  .simg{
+    height:100%;
+  }
+  @media screen and (max-width: 1768px) {
+   .onimg1{
+    
+    position: absolute !important;
+    bottom:8%;
+    left:10%;
+  }
+     .simg{
+    height:90%;
+  }
+   
+  }
+  @media screen and (max-width: 768px) {
+     .mw li img{
+      max-width:190px;
+    }
+    .mw {
+     margin:0px 0px 0px 0px!important;
+
+       width:auto !important;
+    }
+  }
+{% endstyle %}
+{% if section.settings.divider %}
+  <div class="section--divider">
+{% endif %}
+
+<div class="mw" style="width: 100%;margin: 0 0 0 0%;">
+  <section class="splide top" aria-label="Splide Basic HTML Example">
+    <div class="splide__track">
+      <ul class="splide__list scrollm" style="align-items: center;    overflow-x: scroll;">
+        <li class="splide__slide">
+          <img
+            style="width:100%;height:100%;"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_3248_4.png?v=1692178190"
+            alt="Slider Image"
+          >
+          <a href="https://eqiru.myshopify.com/collections/notebook" class="btn onimg" tabindex="0">Notebook</a>
+        </li>
+        <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
+          <img
+            
+            style="width:100%;"
+            class="relative simg"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_3248_4.png?v=1692178190"
+            alt="Slider Image"
+          >
+          <a href="https://eqiru.myshopify.com/collections/envelopes" class="btn onimg1" tabindex="0">Envelopes</a>
+        </li>
+        <li class="splide__slide">
+          <img
+            style="width:100%;"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_3248_4.png?v=1692178190"
+            alt="Slider Image"
+          >
+          <a href="https://eqiru.myshopify.com/collections/gift-boxes" class="btn onimg" tabindex="0">Gift boxes</a>
+        </li>
+        <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
+          <img
+            style="width:100%;"
+            class="relative simg"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_3248_4.png?v=1692178190"
+            alt="Slider Image"
+          >
+          <a href="https://eqiru.myshopify.com/collections/folders" class="btn onimg1" tabindex="0">Folders</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+{% if section.settings.divider %}
+  </div>
+{% endif %}
+
