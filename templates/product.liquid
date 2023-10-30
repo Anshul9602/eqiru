@@ -1,40 +1,64 @@
 {% section 'product-template' %}
 {% section 'featured-collection' %}
 {% section 'recently-viewed' %}
- <style>
-  .col-md-6{
+<style>
+  .col-md-6 {
     max-width: 50%;
     width: 100%;
   }
- </style>
-<div class="custom_butt">
-  <div class="row" style="display: flex;">
-    <div class="col-md-6 row"  style="display: flex;">
-      <div class="col-md-6">
 
+  .col-md-3 {
+    max-width: 33%;
+    width: 100%;
+  }
+</style>
+<div class="custom_butt1">
+  <div class="row" style="display: flex;align-items: center;">
+    <div class="col-md-6 row" style="display: flex;align-items: center;">
+      <div class="col-md-6" style="display:flex;align-items: center;">
+        {%- assign hasRun = false -%}
+
+        {%- for image in product.images -%}
+        {%- if hasRun == false -%}
+        <div class="image-grid-item" style="width:100px;">
+          <img src="{{ image | img_url: '100x100' }}" alt="{{ product.title }} - Image">
+        </div>
+        {%- assign hasRun = true -%}
+        {%- endif -%}
+        {%- endfor -%}
+        <p class="h2 product-single__title" style="font-size:18px;">
+          {{ product.title }}<br><br>
+
+          <span id="ProductPrice-{{ section_id }}"
+            class="product__price{% if current_variant.compare_at_price > current_variant.price %} on-sale{% endif %}"
+            style="font-size:16px;">
+            {{ current_variant.price | money }}
+          </span>
+        </p>
       </div>
+
       <div class="col-md-6">
         <p class="h2 product-single__title">
-          {{ product.title }}
+
         </p>
       </div>
     </div>
     <div class="col-md-6 ">
-     
-        <div class="payment-buttons">
-          <button type="btn" id="custom_add" class="btn btn--full add-to-cart btn--secondary">
-            <span> Add to cart </span>
-          </button>
 
-          <div class="shopify-payment-button">
-            <button type="button" id="custom_buy"
-              class="shopify-payment-button__button shopify-payment-button__button--unbranded BUz42FHpSPncCPJ4Pr_f jjzYeefyWpPZLH9pIgyw RWJ0IfBjxIhflh4AIrUw">
-              Buy it now</button>
+      <div class="payment-buttons">
+        <button type="btn" id="custom_add" class="btn btn--full add-to-cart btn--secondary">
+          <span> Add to cart </span>
+        </button>
+
+        <div class="shopify-payment-button">
+          <button type="button" id="custom_buy"
+            class="shopify-payment-button__button shopify-payment-button__button--unbranded BUz42FHpSPncCPJ4Pr_f jjzYeefyWpPZLH9pIgyw RWJ0IfBjxIhflh4AIrUw">
+            Buy it now</button>
 
 
-          </div>
         </div>
-      
+      </div>
+
     </div>
   </div>
 </div>
