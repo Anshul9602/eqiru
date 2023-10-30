@@ -1,9 +1,18 @@
+
+
+<script src="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
+"></script>
+<link href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+" rel="stylesheet">
+
 {%- assign featured_media = product.selected_or_first_available_variant.featured_media
   | default: product.featured_media
 -%}
 
 {%- unless product.empty? -%}
-  <div class="image-grid">
+  <div class="image-grid small--hide">
     {%- for image in product.images -%}
       <div class="image-grid-item">
         <a href="{{ image | img_url: '320x320' }}" data-index="{{ forloop.index0 }}">
@@ -11,6 +20,20 @@
         </a>
       </div>
     {%- endfor -%}
+  </div>
+  <div class=" medium-up--hide">
+    
+      <div class="splide sp1" role="group" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+		<ul class="splide__list">
+      {%- for image in product.images -%}
+			<li class="splide__slide"><img src="{{ image | img_url: '100%' }}" alt="{{ product.title }} - Image" width="100%"></li>
+    {%- endfor -%}
+		</ul>
+  </div>
+</div>
+     
+   
   </div>
 
   <script type="application/json" id="ModelJson-{{ section_id }}">
@@ -29,3 +52,14 @@
     </div>
   </div>
 {%- endunless -%}
+ <script>
+  
+
+  var splide = new Splide( '.sp1', {
+  perPage: 1,
+  rewind : true,
+  pagination: false,
+} );
+
+splide.mount();
+ </script>
