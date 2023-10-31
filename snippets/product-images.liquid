@@ -30,11 +30,11 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     width: 100%;
   }
 </style>
-<div class="small--hide">
+
   <div class="custom_butt1 ">
     <div class="row" style="display: flex;align-items: center;max-width: 90%;margin: auto;">
-      <div class="col-md-6 row" style="display: flex;align-items: center;">
-        <div class="col-md-6" style="display:flex;align-items: center;">
+      <div class="col-md-6 row small--hide" style="display: flex;align-items: center;">
+        <div class="col-md-6 small--hide" style="display:flex;align-items: center;">
           {%- assign hasRun = false -%}
 
           {%- for image in product.images -%}
@@ -56,22 +56,22 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           </p>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 ">
           <p class="h2 product-single__title">
 
           </p>
         </div>
       </div>
-      <div class="col-md-6 ">
+      <div class="col-md-6 col-12">
 
-        <div class="payment-buttons">
-          <button type="btn" id="custom_add" class="btn btn--full add-to-cart btn--secondary">
+        <div class="payment-buttons" style="width: 100%;">
+          <button type="btn" id="custom_add" class="btn btn--full add-to-cart btn--secondary col-6">
             <span> Add to cart </span>
           </button>
 
-          <div class="shopify-payment-button">
+          <div class="shopify-payment-button col-6">
             <button type="button" id="custom_buy"
-              class="shopify-payment-button__button shopify-payment-button__button--unbranded BUz42FHpSPncCPJ4Pr_f jjzYeefyWpPZLH9pIgyw RWJ0IfBjxIhflh4AIrUw">
+              class="shopify-payment-button__button shopify-payment-button__button--unbranded ">
               Buy it now</button>
 
 
@@ -82,33 +82,9 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 
     </div>
   </div>
-</div>
-
-<div class="medium-up--hide">
-  <div class="custom_butt11">
-    <div class="row" style="display: flex;align-items: center;max-width: 100%;margin: auto;width:100%;padding: 10px;">
-     
-      
-
-        <div class="payment-buttons" style="width:100%;">
-          <button type="btn" id="custom_add" class="btn btn--full add-to-cart btn--secondary" style="width: 100%;max-width:50%;">
-            <span> Add to cart </span>
-          </button>
-
-          <div class="shopify-payment-button"style="width: 100%;max-width:50%;">
-            <button type="button" id="custom_buy"
-              class="shopify-payment-button__button shopify-payment-button__button--unbranded BUz42FHpSPncCPJ4Pr_f jjzYeefyWpPZLH9pIgyw RWJ0IfBjxIhflh4AIrUw">
-              Buy it now</button>
 
 
-          </div>
-        </div>
 
-      </div>
-
-
-  </div>
-</div>
 
 
 
