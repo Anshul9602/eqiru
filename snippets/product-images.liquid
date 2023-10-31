@@ -11,23 +11,89 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
   | default: product.featured_media
 -%}
 
-{%- unless product.empty? -%}
-  <div class="image-grid small--hide">
-    {%- for image in product.images -%}
-      <div class="image-grid-item">
-        <a href="{{ image | img_url: '320x320' }}" data-index="{{ forloop.index0 }}">
-          <img src="{{ image | img_url: '540x' }}" alt="{{ product.title }} - Image">
-        </a>
+
+
+<style>
+  #AddToCartText-8809841525020{
+    font-size:22px;
+  }
+  #custom_add{
+    font-size:22px;
+  }
+  .col-md-6 {
+    max-width: 50%;
+    width: 100%;
+  }
+
+  .col-md-3 {
+    max-width: 33%;
+    width: 100%;
+  }
+</style>
+<div class="custom_butt1">
+  <div class="row" style="display: flex;align-items: center;max-width: 90%;margin: auto;">
+    <div class="col-md-6 row" style="display: flex;align-items: center;">
+      <div class="col-md-6" style="display:flex;align-items: center;">
+        {%- assign hasRun = false -%}
+
+        {%- for image in product.images -%}
+        {%- if hasRun == false -%}
+        <div class="image-grid-item" style="width:100px;">
+          <img src="{{ image | img_url: '100x100' }}" alt="{{ product.title }} - Image">
+        </div>
+        {%- assign hasRun = true -%}
+        {%- endif -%}
+        {%- endfor -%}
+        <p class="h2 product-single__title" style="font-size:18px;">
+          {{ product.title }}<br><br>
+
+          <span id="ProductPrice-{{ section_id }}"
+            class="product__price{% if current_variant.compare_at_price > current_variant.price %} on-sale{% endif %}"
+            style="font-size:16px;">
+            {{ current_variant.price | money }}
+          </span>
+        </p>
       </div>
-    {%- endfor -%}
-  </div>
-  <div class=" medium-up--hide">
+
+      <div class="col-md-6">
+        <p class="h2 product-single__title">
+
+        </p>
+      </div>
+    </div>
+    <div class="col-md-6 ">
+
+      <div class="payment-buttons">
+        <button type="btn" id="custom_add" class="btn btn--full add-to-cart btn--secondary">
+          <span> Add to cart </span>
+        </button>
+
+        <div class="shopify-payment-button">
+          <button type="button" id="custom_buy"
+            class="shopify-payment-button__button shopify-payment-button__button--unbranded BUz42FHpSPncCPJ4Pr_f jjzYeefyWpPZLH9pIgyw RWJ0IfBjxIhflh4AIrUw">
+            Buy it now</button>
+
+
+        </div>
+      </div>
+
+    </div>
     
-      <div class="splide sp1" role="group" aria-label="Splide Basic HTML Example">
+  </div>
+</div>
+
+
+
+
+{%- unless product.empty? -%}
+ 
+  <div class=" ">
+    
+      <div class="splide sp1" role="group" aria-label="Splide Basic HTML Example"  style="    width: 70%;margin: auto;">
   <div class="splide__track">
 		<ul class="splide__list">
       {%- for image in product.images -%}
-			<li class="splide__slide"><img src="{{ image | img_url: '100%' }}" alt="{{ product.title }} - Image" width="100%"></li>
+			<li class="splide__slide"><img src="{{ image | img_url: '600' }}" alt="{{ product.title }} - Image" width="100%"></li>
     {%- endfor -%}
 		</ul>
   </div>
