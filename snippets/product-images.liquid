@@ -9,7 +9,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
 | default: product.featured_media
 -%}
 
-https://cdn.shopify.com/s/files/1/0773/3870/6204/files/note.jpg?v=1698748160
+
 
 <style>
   #AddToCartText-8809841525020 {
@@ -28,6 +28,12 @@ https://cdn.shopify.com/s/files/1/0773/3870/6204/files/note.jpg?v=1698748160
   .col-md-3 {
     max-width: 33%;
     width: 100%;
+  }
+  .mm1{
+        margin: 0 -11%;
+  }
+  .splide__arrows{
+    display: none;
   }
 </style>
 
@@ -64,8 +70,8 @@ https://cdn.shopify.com/s/files/1/0773/3870/6204/files/note.jpg?v=1698748160
       </div>
       <div class="col-md-6 col-12">
 
-        <div class="payment-buttons" style="width: 100%;">
-          <button type="btn" id="custom_add" class="btn btn--full add-to-cart btn--secondary col-6">
+        <div class="payment-buttons p11" style="width: 100%;">
+          <button type="btn" id="custom_add" class="btn btn--full add-to-cart btn--secondary col-61">
             <span> Add to cart </span>
           </button>
 
@@ -91,13 +97,13 @@ https://cdn.shopify.com/s/files/1/0773/3870/6204/files/note.jpg?v=1698748160
 
 {%- unless product.empty? -%}
 
-<div class=" ">
+<div class=" mm1" style="">
 
   <div class="splide sp1" role="group" aria-label="Splide Basic HTML Example" style="    width: 70%;margin: auto;">
     <div class="splide__track">
       <ul class="splide__list">
         {%- for image in product.images -%}
-        <li class="splide__slide"><img src="{{ image | img_url: '600' }}" alt="{{ product.title }} - Image"
+        <li class="splide__slide"><img src="{{ image | img_url: '600600' }}" alt="{{ product.title }} - Image"
             width="100%"></li>
         {%- endfor -%}
       </ul>
