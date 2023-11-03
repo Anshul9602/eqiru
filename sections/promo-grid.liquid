@@ -1,21 +1,21 @@
 <div data-section-id="{{ section.id }}" data-section-type="promo-grid">
   {% unless section.settings.full_width %}
     <div class="page-width">
-    {% endunless %}
+  {% endunless %}
 
-    {% include 'promo-grid' %}
+  {% include 'promo-grid' %}
 
-    {% if section.blocks.size == 0 %}
-      <div class="page-width text-center">
-        <div class="rte">
-          <p>
-            {{ 'home_page.onboarding.no_content' | t }}
-          </p>
-        </div>
+  {% if section.blocks.size == 0 %}
+    <div class="page-width text-center">
+      <div class="rte">
+        <p>
+          {{ 'home_page.onboarding.no_content' | t }}
+        </p>
       </div>
-    {% endif %}
+    </div>
+  {% endif %}
 
-    {% unless section.settings.full_width %}
+  {% unless section.settings.full_width %}
     </div>
   {% endunless %}
 </div>
@@ -30,9 +30,7 @@
         "id": "full_width",
         "label": "Full page width",
         "default": false
-      }, 
-      
-      {
+      }, {
         "type": "range",
         "id": "gutter_size",
         "label": "Spacing",
@@ -93,21 +91,19 @@
             "type": "text",
             "id": "subheading1",
             "label": "Subheading1"
-            
+
           },
-         
-           {
-        "type": "image_picker",
-        "id": "image1",
-        "label": "Image_mian"
-      },
+
           {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "Image_mian"
+          }, {
             "type": "textarea",
             "id": "textarea",
             "label": "Text",
             "default": "Include the smaller details of your promotion in text below the title."
-          },
-          {
+          }, {
             "type": "text",
             "id": "cta_text1",
             "label": "Button #1 text",
@@ -326,6 +322,18 @@
           }
         ]
       },
+      {
+    "type": "splide_image",
+    "name": "splide",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "slider",
+        "label": "Slider Images",
+        "info": "Add images for the slider."
+      }
+    ]
+  },
       {
         "type": "image",
         "name": "Image",
