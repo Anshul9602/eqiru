@@ -11,12 +11,17 @@
     bottom:3%;
     left: 5%;
   }
+  .splide {
+    position: relative;
+    visibility: visible !important;
+}
   .onimg1{
     position: absolute !important;
     bottom:4%;
     left:12%;
     
   }
+
   .simg{
     height:100%;
   }
@@ -32,10 +37,20 @@
   }
    
   }
+  .mw li{
+        width: 100%;
+    max-width: 25%;
+    padding-right:13px;
+  }
   @media screen and (max-width: 768px) {
      .mw li img{
-      max-width:190px;
+      max-width:160px;
     }
+    .mw li{
+        width: 100%;
+    max-width: 45%;
+    padding-right:13px;
+  }
     .mw {
      margin:0px 0px 0px 0px!important;
 
@@ -51,10 +66,10 @@
   <section class="splide top" aria-label="Splide Basic HTML Example">
     <div class="splide__track">
       <ul class="splide__list scrollm" style="align-items: center;    overflow-x: scroll;">
-        <li class="splide__slide">
+        <li class="splide__slide" style="">
           <img
             style="width:100%;height:100%;"
-            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_3248_4.png?v=1692178190"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/note2.jpg?v=1698748643"
             alt="Slider Image"
           >
           <a href="https://eqiru.myshopify.com/collections/notebook" class="btn onimg" tabindex="0">Notebook</a>
@@ -64,12 +79,12 @@
             
             style="width:100%;"
             class="relative simg"
-            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_3248_4.png?v=1692178190"
+            src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/env.jpg?v=1698748159"
             alt="Slider Image"
           >
           <a href="https://eqiru.myshopify.com/collections/envelopes" class="btn onimg1" tabindex="0">Envelopes</a>
         </li>
-        <li class="splide__slide">
+        <li class="splide__slide"style="">
           <img
             style="width:100%;"
             src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/DSC_3248_4.png?v=1692178190"
