@@ -48,11 +48,7 @@ px;
 }
 {% endstyle %}
 
-
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
 <!-- Slider main container -->
 
@@ -275,55 +271,19 @@ px;
 
 
                             <div class="rte--block11">
-                                <p>01 - 03</p>
+                                <p id="numberSlides" style="font-size: 13px;">01 - 04</p>
                             </div>
                             <div class="rte--block2 ">
-                                <h1 style="    margin: 0 0 10px;">BOTANY</h1>
-                                <h1>BOX</h1>
+                                <h1 style="    margin: 0 0 10px;" id="textSlider">BOTANY BOX</h1>
+                                
                             </div>
                         </div>
                     </div>
                     {% endif %}
                 </div>
             </div>
-            {% when 'splide' %}
-            <div
-                class="promo-grid__container{% if block.settings.boxed %} promo-grid__container--boxed{% endif %}{% if block.settings.framed %} promo-grid__container--framed{% endif %} {{ block.settings.text_align }}">
+            {% when 'splide1' %}
 
-                <div class="swiper-container">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide">
-                            <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/botany_box.jpg?v=1699014961" alt="" width="100%">
-                        </div>
-                        <div class="swiper-slide" width="100%"    >
-                            <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/corporate_box.jpg?v=1699014961" alt="">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/gifting_fix.jpg?v=1699014961" alt="" width="100%">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/gifting_fix.jpg?v=1699014961" alt="" width="100%">
-                        </div>
-                    </div>
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
-
-                    <!-- If we need navigation buttons -->
-                    <div id="prev" class="swiper-button-prev"></div>
-                    <div id="next" class="swiper-button-next"></div>
-
-                    <div id="numberSlides">
-                        0/0 Offers
-                    </div>
-                </div>
-
-
-
-
-
-            </div>
             {% when 'sale_collection' %}
             <a href="{{ collections[block.settings.sale_collection].url }}"
                 class="promo-grid__container{% if block.settings.framed and block.settings.boxed == false %} promo-grid__container--framed{% endif %}{% if block.settings.color_tint_opacity > 0 %} promo-grid__container--tint{% endif %} vertical-center horizontal-left">
@@ -405,240 +365,244 @@ px;
             </a>
 
             {% when 'simple' %}
-            {%- assign block_img = '' -%}
-            {%- assign block_text = '' -%}
-            {% if block.settings.link contains '/products/' %}
-            {%- assign product_handle = block.settings.link | remove: '/products/' -%}
-            {%- assign block_img = all_products[product_handle].featured_media.preview_image -%}
-            {%- assign block_text = all_products[product_handle].title -%}
-            {% elsif block.settings.link contains '/collections/' %}
-            {%- assign collection_handle = block.settings.link | remove: '/collections/' -%}
-            {%- assign block_text = collections[collection_handle].title -%}
-            {% if collections[collection_handle].image %}
-            {%- assign block_img = collections[collection_handle].image -%}
-            {% else %}
-            {%- assign block_img = collections[collection_handle].products[0].featured_image -%}
-            {% endif %}
-            {% endif %}
-            {% if block.settings.text != '' %}
-            {%- assign block_text = block.settings.text -%}
-            {% endif %}
-            {% if block.settings.image %}
-            {%- assign block_img = block.settings.image -%}
-            {% endif %}
+            <style>
+                .swiper {
+                    width: 500px;
+                    height: 100%;
+                    
+                }
+                .im1 img{
+                    height: 100%;
+                }
+                @media only screen and (max-width: 589px) {
+                .swiper {
+    width: 250px !important;
+  
+}}
+            </style>
+            
+                <div class="swiper im1">
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/botany_box.jpg?v=1699014961"
+                                alt="" width="100%">
+                                <p style="display: none;" >BOTANY BOX</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/corporate_box.jpg?v=1699014961"
+                                alt="" width="100%">
+                                <p style="display: none;" >CORPORATE BOX</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/kitchen_box.jpg?v=1699014961"
+                                alt="" width="100%" >
+                                <p style="display: none;" >KITCHEN BOX</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/office_box.jpg?v=1699014961"
+                                alt="" width="100%">
+                                <p style="display: none;" >OFFICE BOX</p>
+                        </div>
 
-            <a href="{{ block.settings.link }}"
-                class="promo-grid__container{% if block.settings.framed %} promo-grid__container--framed{% endif %}{% if block.settings.color_tint_opacity > 0 %} promo-grid__container--tint{% endif %} vertical-center horizontal-center">
-                <div class="promo-grid__bg{% if block_img != blank %} lazyload{% endif %}" {% if block_img !=blank
-                    %}data-bgset="{% include 'bgset', image: block_img %}" data-sizes="auto" {% endif %}>
-                    {% if block_img == blank %}
-                    {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                    {% endif %}
+                        <!-- Add more slides as needed -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    
+                   
                 </div>
-                <noscript>
-                    <div class="promo-grid__bg" style="background-image: url({{ block_img | img_url: '1400x' }});">
-                    </div>
-                </noscript>
 
-                <div class="promo-grid__content">
-                    <div class="promo-grid__text text-center">
-                        <p class="promo-grid__title h2">
-                            {% if block_text != blank %}
-                            {{ block_text | newline_to_br }}
-                            {% else %}
-                            Simple promotion
-                            {% endif %}
-                        </p>
-                    </div>
-                </div>
-            </a>
 
-            {% when 'image' %}
-            <div class="promo-grid__container">
-                {% if block.settings.link %}
-                <a href="{{ block.settings.link }}">
-                    {% endif %}
-                    {% if block.settings.image != blank %}
-                    <div class="image-wrap"
-                        style="height: 0; padding-bottom: {{ 100 | divided_by: block.settings.image.aspect_ratio }}%;">
-                        {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                        <img class="lazyload" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1600]"
-                            data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto"
-                            role="presentation" alt="{{ block.settings.image.alt }}">
-                        <noscript>
-                            <img class="lazyloaded" src="{{ block.settings.image | img_url: '600x' }}"
-                                alt="{{ block.settings.image.alt }}">
-                        </noscript>
-                    </div>
-                    {% else %}
-                    {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-                    {% endif %}
-                    {% if block.settings.link %}
-                </a>
-                {% endif %}
-            </div>
 
-            {% when 'banner' %}
+         
+
+
+         
+
+
+
+
+
+        </div>
+        {% when 'image' %}
+        <div class="promo-grid__container">
             {% if block.settings.link %}
-            <a href="{{ block.settings.link }}" class="type-banner__link">
+            <a href="{{ block.settings.link }}">
                 {% endif %}
-                <div
-                    class="promo-grid__container{% if block.settings.framed %} promo-grid__container--framed{% endif %}{% if block.settings.color_tint_opacity > 0 %} promo-grid__container--tint{% endif %}">
-                    <div class="type-banner__content text-center">
-                        {% if block.settings.image != blank %}
-                        <div class="type-banner__image">
-                            <div class="image-wrap"
-                                style="height: 0; padding-bottom: {{ 100 | divided_by: block.settings.image.aspect_ratio }}%;">
-                                {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.',
-                                '_{width}x.' -%}
-                                <img class="lazyload" data-src="{{ img_url }}" data-widths="[180, 360, 460]"
-                                    data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto"
-                                    role="presentation" alt="{{ block.settings.image.alt }}">
-                                <noscript>
-                                    <img class="lazyloaded" src="{{ block.settings.image | img_url: '300x' }}"
-                                        alt="{{ block.settings.image.alt }}">
-                                </noscript>
+                {% if block.settings.image != blank %}
+                <div class="image-wrap"
+                    style="height: 0; padding-bottom: {{ 100 | divided_by: block.settings.image.aspect_ratio }}%;">
+                    {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                    <img class="lazyload" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1600]"
+                        data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto" role="presentation"
+                        alt="{{ block.settings.image.alt }}">
+                    <noscript>
+                        <img class="lazyloaded" src="{{ block.settings.image | img_url: '600x' }}"
+                            alt="{{ block.settings.image.alt }}">
+                    </noscript>
+                </div>
+                {% else %}
+                {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+                {% if block.settings.link %}
+            </a>
+            {% endif %}
+        </div>
+
+        {% when 'banner' %}
+        {% if block.settings.link %}
+        <a href="{{ block.settings.link }}" class="type-banner__link">
+            {% endif %}
+            <div
+                class="promo-grid__container{% if block.settings.framed %} promo-grid__container--framed{% endif %}{% if block.settings.color_tint_opacity > 0 %} promo-grid__container--tint{% endif %}">
+                <div class="type-banner__content text-center">
+                    {% if block.settings.image != blank %}
+                    <div class="type-banner__image">
+                        <div class="image-wrap"
+                            style="height: 0; padding-bottom: {{ 100 | divided_by: block.settings.image.aspect_ratio }}%;">
+                            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.',
+                            '_{width}x.' -%}
+                            <img class="lazyload" data-src="{{ img_url }}" data-widths="[180, 360, 460]"
+                                data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto"
+                                role="presentation" alt="{{ block.settings.image.alt }}">
+                            <noscript>
+                                <img class="lazyloaded" src="{{ block.settings.image | img_url: '300x' }}"
+                                    alt="{{ block.settings.image.alt }}">
+                            </noscript>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="type-banner__text">
+                        {% if block.settings.heading != blank %}
+                        <p class="h3">{{ block.settings.heading }}</p>
+                        {% endif %}
+                        {% if block.settings.text != blank %}
+                        <p>{{ block.settings.text }}</p>
+                        {% endif %}
+                        {% if block.settings.label != blank %}
+                        <p class="btn btn--secondary btn--small{% if tint_exists %} btn--tint-border{% endif %}">{{
+                            block.settings.label }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% if block.settings.link %}
+        </a>
+        {% endif %}
+
+        {% when 'product' %}
+        {%- assign product = all_products[block.settings.product] -%}
+        <div class="promo-grid__container{% if block.settings.framed %} promo-grid__container--framed{% endif %}">
+            <div
+                class="type-product__wrapper{% if block.settings.color_tint_opacity > 0 %} promo-grid__container--tint{% endif %}">
+                <div class="flex-grid flex-grid--center flex-grid--gutters">
+                    <div
+                        class="flex-grid__item flex-grid__item--stretch flex-grid__item--50 flex-grid__item--mobile-second">
+                        {% if block.settings.subheading != blank or block.settings.heading != blank or
+                        block.settings.textarea != blank or block.settings.link_label != blank %}
+                        <div class="promo-grid__text type-product__content">
+                            {% if block.settings.subheading != blank %}
+                            <div class="rte--block rte--em">
+                                {{ block.settings.subheading }}
                             </div>
+                            {% endif %}
+                            {% if block.settings.heading != blank %}
+                            <div class="rte--block rte--strong">
+                                {{ block.settings.heading }}
+                            </div>
+                            {% endif %}
+                            {% if block.settings.textarea != blank %}
+                            <div class="rte--block">
+                                {{ block.settings.textarea | newline_to_br }}
+                            </div>
+                            {% endif %}
+                            {% if block.settings.link_label != blank %}
+                            <a href="{{ product.url }}" class="btn">
+                                {{ block.settings.link_label }}
+                            </a>
+                            {% endif %}
                         </div>
                         {% endif %}
-                        <div class="type-banner__text">
-                            {% if block.settings.heading != blank %}
-                            <p class="h3">{{ block.settings.heading }}</p>
-                            {% endif %}
-                            {% if block.settings.text != blank %}
-                            <p>{{ block.settings.text }}</p>
-                            {% endif %}
-                            {% if block.settings.label != blank %}
-                            <p class="btn btn--secondary btn--small{% if tint_exists %} btn--tint-border{% endif %}">{{
-                                block.settings.label }}</p>
-                            {% endif %}
-                        </div>
                     </div>
-                </div>
-                {% if block.settings.link %}
-            </a>
-            {% endif %}
-
-            {% when 'product' %}
-            {%- assign product = all_products[block.settings.product] -%}
-            <div class="promo-grid__container{% if block.settings.framed %} promo-grid__container--framed{% endif %}">
-                <div
-                    class="type-product__wrapper{% if block.settings.color_tint_opacity > 0 %} promo-grid__container--tint{% endif %}">
-                    <div class="flex-grid flex-grid--center flex-grid--gutters">
-                        <div
-                            class="flex-grid__item flex-grid__item--stretch flex-grid__item--50 flex-grid__item--mobile-second">
-                            {% if block.settings.subheading != blank or block.settings.heading != blank or
-                            block.settings.textarea != blank or block.settings.link_label != blank %}
-                            <div class="promo-grid__text type-product__content">
-                                {% if block.settings.subheading != blank %}
-                                <div class="rte--block rte--em">
-                                    {{ block.settings.subheading }}
-                                </div>
-                                {% endif %}
-                                {% if block.settings.heading != blank %}
-                                <div class="rte--block rte--strong">
-                                    {{ block.settings.heading }}
-                                </div>
-                                {% endif %}
-                                {% if block.settings.textarea != blank %}
-                                <div class="rte--block">
-                                    {{ block.settings.textarea | newline_to_br }}
-                                </div>
-                                {% endif %}
-                                {% if block.settings.link_label != blank %}
-                                <a href="{{ product.url }}" class="btn">
-                                    {{ block.settings.link_label }}
-                                </a>
-                                {% endif %}
-                            </div>
-                            {% endif %}
-                        </div>
-                        <div
-                            class="flex-grid__item flex-grid__item--stretch flex-grid__item--50 flex-grid__item--second">
-                            <div class="type-product__images" data-aos="row-of-2">
-                                {% unless product.empty? %}
-                                {% for image in product.images limit: 2 %}
-                                <div class="type-product__image">
-                                    {% if forloop.index == 1 %}
-                                    <div class="type-product__labels">
-                                        {% if block.settings.label != blank %}
-                                        <div class="type-product__label">
-                                            {{ block.settings.label }}
-                                        </div>
-                                        {% endif %}
-                                        {% if block.settings.enable_price %}
-                                        <div class="type-product__label type-product__label--secondary">
-                                            {{ product.price | money }}
-                                        </div>
-                                        {% endif %}
+                    <div class="flex-grid__item flex-grid__item--stretch flex-grid__item--50 flex-grid__item--second">
+                        <div class="type-product__images" data-aos="row-of-2">
+                            {% unless product.empty? %}
+                            {% for image in product.images limit: 2 %}
+                            <div class="type-product__image">
+                                {% if forloop.index == 1 %}
+                                <div class="type-product__labels">
+                                    {% if block.settings.label != blank %}
+                                    <div class="type-product__label">
+                                        {{ block.settings.label }}
                                     </div>
                                     {% endif %}
-                                    <div class="image-wrap"
-                                        style="height: 0; padding-bottom: {{ 100 | divided_by: image.aspect_ratio }}%;">
-                                        {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                                        <a href="{{ product.url }}">
-                                            <img class="lazyload" data-src="{{ img_url }}"
-                                                data-widths="[360, 540, 720, 900, 1080, 1600]"
-                                                data-aspectratio="{{ image.aspect_ratio }}" data-sizes="auto"
-                                                alt="{{ image.alt }}">
-                                            <noscript>
-                                                <img class="lazyloaded" src="{{ image | img_url: '600x' }}"
-                                                    alt="{{ image.alt }}">
-                                            </noscript>
-                                        </a>
+                                    {% if block.settings.enable_price %}
+                                    <div class="type-product__label type-product__label--secondary">
+                                        {{ product.price | money }}
                                     </div>
+                                    {% endif %}
                                 </div>
-                                {% endfor %}
-                                {% else %}
-                                <div class="type-product__image">
-                                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                                {% endif %}
+                                <div class="image-wrap"
+                                    style="height: 0; padding-bottom: {{ 100 | divided_by: image.aspect_ratio }}%;">
+                                    {%- assign img_url = image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+                                    <a href="{{ product.url }}">
+                                        <img class="lazyload" data-src="{{ img_url }}"
+                                            data-widths="[360, 540, 720, 900, 1080, 1600]"
+                                            data-aspectratio="{{ image.aspect_ratio }}" data-sizes="auto"
+                                            alt="{{ image.alt }}">
+                                        <noscript>
+                                            <img class="lazyloaded" src="{{ image | img_url: '600x' }}"
+                                                alt="{{ image.alt }}">
+                                        </noscript>
+                                    </a>
                                 </div>
-                                <div class="type-product__image">
-                                    {{ 'product-2' | placeholder_svg_tag: 'placeholder-svg' }}
-                                </div>
-                                {% endunless %}
                             </div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="type-product__image">
+                                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                            </div>
+                            <div class="type-product__image">
+                                {{ 'product-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                            </div>
+                            {% endunless %}
                         </div>
                     </div>
                 </div>
             </div>
-            {% endcase %}
         </div>
-        {% endfor %}
+        {% endcase %}
     </div>
+    {% endfor %}
+</div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    var mySwiper = new Swiper('.swiper-container', {
-        // Optional parameters
-        loop: true,
-        initialSlide: 0,
-        watchSlidesProgress: true,
-        watchSlidesVisibility: true,
+    var swiper = new Swiper('.swiper', {
 
-        // If we need pagination
         pagination: {
             el: '.swiper-pagination',
         },
 
-        // Navigation arrows
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+       
 
         // And if we need scrollbar
-        scrollbar: {
-            el: '.swiper-scrollbar',
-        }
-    })
+       
+    });
+    swiper.on('slideChange', function () {
+        var activeIndex = swiper.realIndex + 1;
+        var totalSlides = swiper.slides.length;
+        document.getElementById('numberSlides').innerText = '0' + activeIndex + ' - ' + '0'+totalSlides;
 
-    function change() {
-        var offer = document.getElementById('numberSlides');
-        offer.innerHTML = (mySwiper.realIndex + 1) + '/' + (mySwiper.slides.length - 2) + 'Offers';
-    }
+        var activeIndex = swiper.activeIndex;
+        
+        // Get the corresponding text from the hidden <p> tag
+        var slideText = document.querySelectorAll('.swiper-slide p')[activeIndex].textContent;
+        
+        // Update the text in the "textSlider" element
+        document.getElementById('textSlider').textContent = slideText;
+    });
 
-    change();
-    document.getElementById("prev").addEventListener("click", change);
-    document.getElementById("next").addEventListener("click", change); 
 </script>
