@@ -28,11 +28,14 @@ display:none;
   }
   .mw1 li img{
     border-radius: 35px;
+    padding:5px;
   }
   @media screen and (max-width: 768px) {
+    .d-none{
+      display:none !important;
+    }
     .mw1 {
-     
-display:block !important;
+display:block ;
        
     }
   }
@@ -41,64 +44,66 @@ display:block !important;
   <div class="section--divider">
 {% endif %}
 
-<div class="mw1" style="width:100%;margin: 15px 0 0 0%;">
+<div id="cat_c" class="mw1" style="width:100%;margin: 15px 0 10px 0%;">
   <section class="splide top1" aria-label="Splide Basic HTML Example">
     <div class="splide__track">
       <ul class="splide__list">
         <li class="splide__slide">
+          <a href="https://eqiru.myshopify.com/collections/notebooks">
           <img
             style="width:70px;height:70px"
             src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/notebook.jpg?v=1698992185"
             alt="Slider Image"
           >
-          <p style="color:white;font-size: 13px;text-align: center;">Notebook</p>
+          <p style="color:white;font-size: 12px;text-align: center;padding:5px;">Notebook</p></a>
         </li>
         
           
        
         <li class="splide__slide">
+          <a href="">
           <img
             style="width:70px;height:70px"
             src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/envelope.jpg?v=1698992185"
             alt="Slider Image"
           >
-          <p style="color:white;font-size: 13px;text-align: center;">Envelope</p>
+          <p style="color:white;font-size: 12px;text-align: center;padding:5px;">Envelope</p></a>
         </li>
         <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
-          <img
+          <a href=""><img
             style="width:70px;height:70px"
             class="relative"
             src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/planner.jpg?v=1698992185"
             alt="Slider Image"
           >
-          <p style="color:white;font-size: 13px;text-align: center;">Planners</p>
+          <p style="color:white;font-size: 12px;text-align: center;padding:5px;">Planners</p></a>
         </li>
          <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
-          <img
+          <a href=""><img
             style="width:70px;height:70px"
             class="relative"
             src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/folder.jpg?v=1698992185"
             alt="Slider Image"
           >
-          <p style="color:white;font-size: 13px;text-align: center;">Folders</p>
+          <p style="color:white;font-size: 12px;text-align: center;padding:5px;">Folders</p></a>
         </li>
          <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
-          <img
+          <a href=""><img
             style="width:70px;height:70px"
             class="relative"
             src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/luggage.jpg?v=1698992185"
             alt="Slider Image"
           >
-          <p style="color:white;font-size: 13px;text-align: center;">Luggage </p>
+          <p style="color:white;font-size: 12px;text-align: center;padding:5px;">Luggage </p></a>
         </li>
          <li class="splide__slide" style="justify-content: center;display: grid;align-items: center;">
-          <img
+         <a href=""> <img
             style="width:70px;height:70px"
             class="relative"
             src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/notecards.jpg?v=1698992184"
             alt="Slider Image"
           >
-          <p style="color:white;font-size: 13px;text-align: center;">Notecards</p>
+          <p style="color:white;font-size: 12px;text-align: center;padding:5px;">Notecards</p></a>
         </li>
          
       </ul>
@@ -113,9 +118,8 @@ display:block !important;
     var splide = new Splide( '.top1', {
     perPage: 4,
       perMove: 1,
-   
     rewind : true,
-      gap : '1.5rem',
+      gap : '1rem',
       breakpoints: {
               640: {
                 perPage: 3,
