@@ -26,7 +26,7 @@
   @media only screen and (min-width: 960px) {
   .footer__item--{{ block.id }}{
   width: 25%;
-  %;
+
   }
 
   }
@@ -70,7 +70,7 @@
 {% endstyle %}
 
 <footer class="site-footer" data-section-id="{{ section.id }}" data-section-type="footer-section">
-  <div class="ne" style="padding: 3% 0;background: #ecd209;">
+  <div class="ne" style="padding: 3% 0;background: #d1c429;">
     <div class="page-width">
       <div class="news">
         {% include 'footer-newsletter', block: block %}
@@ -252,8 +252,9 @@
           {% endif %}
         </ul>
           <br>
-          <p class="new_f"style="color:#fff;width:100%;"><em>Payment on Eqiru are completely secure.</em></p>
-          <img class="new_f"src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/Payment_Icons.png?v=1697782597" width="100%" alt="">
+          <p class="new_f small--hide"style="color:#fff;width:100%;font-size:14px;"><em>Payment on Eqiru are completely secure.</em></p>
+                    <p class="new_f medium-up--hide"style="color:#fff;width:100%;font-size:10px !important;"><em>Payment on Eqiru are completely secure.</em></p>
+          <img class="new_f"src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/2_1.png?v=1699427038" width="100%" alt="">
         </div>
       </div>
     </div>
@@ -266,6 +267,9 @@
       {% endif %}
     </div>
   </div>
+  <a href="https://api.whatsapp.com/send?phone=+91-98290 65718&amp;text=HELLO" class="float d-flex justify-content-center" style="align-items: center;" target="_blank">
+  <i class="fa fa-whatsapp wp-button"></i>
+</a>
 </footer>
 
 {% schema %}
