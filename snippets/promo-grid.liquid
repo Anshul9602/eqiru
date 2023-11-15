@@ -207,9 +207,9 @@
                     != blank or block.settings.cta_text1 != blank or block.settings.cta_text2 != blank %}
                     <div
                         class="promo-grid__content{% if block.settings.boxed %} promo-grid__content--boxed{% endif %}{% if block.settings.framed %} promo-grid__content--framed{% endif %}">
-                        <div class="promo-grid__text">
+                        <div class="promo-grid__text fade-section">
                             {% if block.settings.subheading != blank %}
-                            <div class="rte--block rte--em">
+                            <div class="rte--block rte--em fade-item">
                                 {{ block.settings.subheading }}
                             </div>
                             {% endif %}
@@ -220,12 +220,12 @@
                                     data-src="{{ img_url }}" data-sizes="auto" alt="{{ block.settings.image.alt }}"></p>
                             {% endif %}
                             {% if block.settings.heading != blank %}
-                            <div class="rte--block1 rte--strong">
+                            <div class="rte--block1 rte--strong fade-item">
                                 {{ block.settings.heading }}
                             </div>
                             {% endif %}
                             {% if block.settings.textarea != blank %}
-                            <div class="rte--block">
+                            <div class="rte--block fade-item">
                                 {{ block.settings.textarea | newline_to_br }}
                             </div>
                             {% endif %}
@@ -267,7 +267,7 @@
                         {% endif %}
                         {% if block.settings.subheading1 != blank %}
                         <div class="promo-grid__content2 ">
-                            <div class="promo-grid__text">
+                            <div class="promo-grid__text ">
     
     
                                 <div class="rte--block11">
@@ -392,7 +392,7 @@
                             <div class="swiper-slide">
                                 <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/corporate_box.jpg?v=1699014961"
                                     alt="" width="100%">
-                                    <p style="display: none;" >CORPORATE BOX</p>
+                                    <p style="display: none;" >CORPORATE CANVAS</p>
                             </div>
                             <div class="swiper-slide">
                                 <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/kitchen_box.jpg?v=1699014961"
@@ -402,12 +402,12 @@
                             <div class="swiper-slide">
                                 <img src="https://cdn.shopify.com/s/files/1/0773/3870/6204/files/office_box.jpg?v=1699014961"
                                     alt="" width="100%">
-                                    <p style="display: none;" >OFFICE BOX</p>
+                                    <p style="display: none;" >ARTISTRY ABSTRACTION</p>
                             </div>
     
                             <!-- Add more slides as needed -->
                         </div>
-                        <div class="swiper-pagination"></div>
+                       
                         
                        
                     </div>
@@ -582,9 +582,7 @@
     <script>
         var swiper = new Swiper('.swiper', {
     
-            pagination: {
-                el: '.swiper-pagination',
-            },
+           
     
             autoplay: {
        delay: 2000,
