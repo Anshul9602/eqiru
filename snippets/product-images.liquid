@@ -1,10 +1,5 @@
-<script src="
-https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js
-"></script>
-<link href="
-https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
-" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 {%- assign featured_media = product.selected_or_first_available_variant.featured_media
 | default: product.featured_media
 -%}
@@ -24,24 +19,32 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     max-width: 50%;
     width: 100%;
   }
-
+.col-md-4 {
+    max-width: 43%;
+    width: 100%;
+  }
   .col-md-3 {
     max-width: 33%;
     width: 100%;
   }
   .mm1{
-        margin: 0 -11%;
+        margin: 0 -13%;
   }
   .splide__arrows{
     display: none;
   }
-  .h1, .h1, h2, .h2, h3, .h3{
-    font-weight: 100;
+  @media screen and (max-width: 768px) {
+     .mm1{
+        margin: 0 -11% !important;
+  }
+    #custom_buy{
+      font-size: 15px !important;
+    }
   }
 </style>
 
   <div class="custom_butt1 ">
-    <div class="row" style="display: flex;align-items: center;max-width: 90%;margin: auto;">
+    <div class="row" style="display: flex;align-items: center;max-width: 90%;margin: auto;    justify-content: space-around;">
       <div class="col-md-6 row small--hide" style="display: flex;align-items: center;">
         <div class="col-md-6 small--hide" style="display:flex;align-items: center;">
           {%- assign hasRun = false -%}
@@ -71,7 +74,7 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
           </p>
         </div>
       </div>
-      <div class="col-md-6 col-12">
+      <div class="col-md-4 col-12">
 
         <div class="payment-buttons p11" style="width: 100%;">
           <button type="btn" id="custom_add" class="btn btn--full add-to-cart btn--secondary col-61">
@@ -92,21 +95,50 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     </div>
   </div>
 
+
+
+
+<style>
+                    .swiper {
+                       width: 500px;margin: auto;
+                        height: 100%;
+                        
+                    }
+                    .im1 img{
+                        height: 100%;
+                    }
+                    @media only screen and (max-width: 589px) {
+                    .swiper {
+        width: 500px !important;
+      
+    }}
+                </style>
+
+
 {%- unless product.empty? -%}
 
 <div class=" mm1" style="">
 
-  <div class="splide sp1" role="group" aria-label="Splide Basic HTML Example" style="    width: 70%;margin: auto;">
-    <div class="splide__track">
-      <ul class="splide__list">
-        {%- for image in product.images -%}
-        <li class="splide__slide"><img src="{{ image | img_url: '600600' }}" alt="{{ product.title }} - Image"
-            width="100%"></li>
-        {%- endfor -%}
-      </ul>
-    </div>
-  </div>
-
+ 
+  
+                
+                    <div class="swiper sp1">
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->{%- for image in product.images -%}
+                            <div class="swiper-slide">
+                               
+        <img src="{{ image | img_url: 'original' }}" alt="{{ product.title }} - Image"
+            width="100%">
+        
+                               
+                            </div>
+                            {%- endfor -%} 
+                            <!-- Add more slides as needed -->
+                        </div>
+                       <div class="swiper-scrollbar " "></div>
+                        
+                       
+                    </div>
 
 </div>
 
@@ -126,14 +158,19 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
   </div>
 </div>
 {%- endunless -%}
-<script>
 
-
-  var splide = new Splide('.sp1', {
-    perPage: 1,
-    rewind: true,
-    pagination: false,
-  });
-
-  splide.mount();
-</script>
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper', {
+    
+           
+    
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+        dragSize: 100
+      }
+            // And if we need scrollbar
+           
+        });
+        </script>
