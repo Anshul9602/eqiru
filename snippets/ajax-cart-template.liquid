@@ -1,11 +1,19 @@
 <style>
-  .cart__item p {
+  
+
+  .cart__item p{
     margin: 0 0 5px;
   }
-
-  .cart__item .newf {
-    font-size: 12px;
+  .cart__item .newf{
+    font-size:12px;
   }
+  .drawer__scrollable {
+    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    overflow-y: auto;
+    padding-top: var(--drawer-gutter);
+}
+
 </style>
 
 
@@ -22,17 +30,13 @@
               </a>
             </div>
             <div class="grid__item two-thirds " style="padding:10px;">
-  <div class="cart__item-title ajaxcart__product-name">
-      <a href="{{url}}" class="cart__item-name">
-      {{ name }}
-      </a>
-      {{#if variation}}
-      <div class="cart__item--variants">{{ variation }}</div>
-      {{/if}}
-      <div class="cart__item--variants">Quantity: {{ itemQty }}</div>
-    </div>
-             
-             
+ 
+              <p class="ajaxcart__product-name">{{ name }}</p>
+  
+              {{#if variation}}
+                <p class="ajaxcart__product-variation newf">{{ variation }}</p>
+              {{/if}}
+              <p class="ajaxcart__product-quantity newf">Quantity: {{ itemQty }}</p>
               <p class="ajaxcart__product-price">{{ price }}</p>
               {{#if properties}}
                 <div class="ajaxcart__product-properties">
@@ -60,7 +64,7 @@
         </div>
       {{/items}}
 
-      <div class="drawer__footer appear-animation appear-delay-{{lastAnimationRow}}">
+      <div class="drawer__footer appear-animation appear-delay-{{lastAnimationRow}}" style="padding:20px 15px;">
         {{#if cartDiscountsApplied}}
           <div class="ajaxcart__cart-discounts">
             {{#each cartDiscounts}}
@@ -68,9 +72,13 @@
             {{/each}}
           </div>
         {{/if}}
-        <p class="ajaxcart__subtotal">Total: {{ totalPrice }}</p>
+  <div class="cart__item-sub cart__item-row" style="display:flex;justify-content: space-between;">
+            <div class="ajaxcart__subtotal">Subtotal</div>
+            <div data-subtotal="">{{ totalPrice }}</div>
+          </div>
+        
 
-        <button type="submit" class="btn btn--full cart__checkout">Checkout</button>
+        <button type="submit" class="btn btn--full cart__checkout spr-button" style=" margin-top: 30px;background: #193f48;">Checkout</button>
       </div>
     </div>
   {% endraw %}
