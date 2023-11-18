@@ -28,7 +28,7 @@
                   <div class="grid__item one-third small--half text-start">
                     {{ 'cart.label.quantity' | t }}
                   </div>
-                  <div class="grid__item one-third small--half text-start">
+                  <div class="grid__item one-third small--half " style="padding-right:10px;    text-align: end;">
                     {{ 'cart.label.total' | t }}
                   </div>
                 </div>
@@ -152,7 +152,7 @@
 
                     </div>
 
-                    <div class="grid__item one-third text-end" style="padding-right:10px;">
+                    <div class="grid__item one-third text-end" style="padding-right:10px;    text-align: end;">
                       <label class="medium-up--hide">
                         {{ 'cart.label.total' | t }}
                       </label>
@@ -191,7 +191,7 @@
                     </div>
                     <div class="grid__item one-half">
                       {% for cart_discount in cart.cart_level_discount_applications %}
-                        <p class="h4 cart__discount">
+                        <p class="h4 cart__discount" >
                           {{ cart_discount.title }} (-{{ cart_discount.total_allocated_amount | money }})
                         </p>
                       {% endfor %}
@@ -202,11 +202,11 @@
                   <div class="grid__item one-half">
                     <p class="h4">{{ 'cart.general.subtotal' | t }}</p>
                   </div>
-                  <div class="grid__item one-half" style="padding-right:10px;">
-                    <p class="h4">{{ cart.total_price | money }}</p>
+                  <div class="grid__item one-half" style="padding-right:0px;">
+                    <p class="h3"style="    font-weight: 600;">{{ cart.total_price | money }}</p>
                   </div>
                 </div>
-                <small  style="padding-right:10px;">
+                <small  style="padding-right:0px;">
                   {{ 'cart.general.shipping_at_checkout' | t }}<br/>
                 </small>
                 {% if settings.cart_terms_conditions_enable %}
@@ -222,7 +222,7 @@
                   </p>
                 {% endif %}
 
-                <div class="cart__checkout-wrapper" style="justify-content: end;    display: flex;padding-right:10px;">
+                <div class="cart__checkout-wrapper" style="justify-content: end;    display: flex;padding-right:0px;">
                   <button
                     type="submit"
                     name="update"
