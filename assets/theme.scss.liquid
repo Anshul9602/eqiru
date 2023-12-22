@@ -10,6 +10,15 @@
    
 }
 @font-face {
+    font-family: "Mr Lackboughs W01 Regular";
+    src: url("https://db.onlinewebfonts.com/t/0a0f20a72a2c306a9550d75fbdb68fb4.eot");
+    src: url("https://db.onlinewebfonts.com/t/0a0f20a72a2c306a9550d75fbdb68fb4.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/0a0f20a72a2c306a9550d75fbdb68fb4.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/0a0f20a72a2c306a9550d75fbdb68fb4.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/0a0f20a72a2c306a9550d75fbdb68fb4.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/0a0f20a72a2c306a9550d75fbdb68fb4.svg#Mr Lackboughs W01 Regular")format("svg");
+}
+@font-face {
     font-family: "Aire Bold Std";
     src: url("https://db.onlinewebfonts.com/t/2a27f7d4b49878738acf8e05519ae0cc.eot");
     src: url("https://db.onlinewebfonts.com/t/2a27f7d4b49878738acf8e05519ae0cc.eot?#iefix")format("embedded-opentype"),
@@ -351,7 +360,7 @@ $colorBtnPrimary: {{ settings.color_button | default: '#000' }};
 
 $colorBtnPrimaryText: {{ settings.color_button_text | default: '#fff' }};
 
-$colorCartDot: {{ settings.color_cart_dot | default: '#ff4f33' }};
+$colorCartDot: {{ settings.color_cart_dot | default: '#193f48' }};
 
 // Text link colors
 
@@ -491,7 +500,7 @@ $siteNavIconPadding: 20px;
 
 $zindexNavDropdowns: 5;
 
-$zindexDrawer: 30;
+$zindexDrawer: 9999;
 
 $zindexDrawerOverlay: 26;
 
@@ -598,7 +607,7 @@ $animate_underlines: true;
 
 /*================ Drawers ================*/
 
-$drawerNavWidth: 300px;
+$drawerNavWidth: 415px;
 
 $drawerCartWidth: 300px;
 
@@ -608,7 +617,7 @@ $drawerCartWidthLarge: 400px;
 
 $drawerHeaderHeight: 70px;
 
-$drawerHeaderHeightLarge: 119px;
+$drawerHeaderHeightLarge: 100px;
 
 $colorDrawers: {{ settings.color_drawer_background | default: '#1c1d1d' }};
 
@@ -698,7 +707,7 @@ input[type="search"]::-webkit-search-decoration {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: -$grid-gutter;
+  margin-left: 0;
 
   @include media-query($small) {
     margin-left: -$grid-gutter-small;
@@ -715,12 +724,12 @@ input[type="search"]::-webkit-search-decoration {
 
 .grid__item {
   float: left;
-  padding-left: $grid-gutter;
+  padding-right: $grid-gutter;
   width: 100%;
   min-height: 1px;
 
   @include media-query($small) {
-    padding-left: $grid-gutter-small;
+    padding-right: $grid-gutter-small;
   }
 
   &[class*="--push"] {
@@ -1186,7 +1195,7 @@ body {
 
 @include media-query($small) {
   .page-width--flush-small {
-    padding: 0;
+    padding:0 0 0 10px;
   }
 }
 
@@ -1409,6 +1418,7 @@ label:not(.variant__button-label),
 .label {
   @include accentFontStack;
   @include accentFontSmallSize;
+  letter-spacing: 0.0em !important;
 }
 
 label {
@@ -1752,7 +1762,7 @@ html input[disabled] {
   -moz-appearance: none;
   border-radius: $button-radius;
   color: $colorBtnPrimaryText;
-  background: #193F47 ;
+  background: #193f48 ;
 
   @include media-query($small) {
     padding: $btnPrimaryPaddingSmall;
@@ -2005,7 +2015,7 @@ html input[disabled] {
   padding: 8px 14px;
   background-position: 150% 45%;
   min-width: 90px;
-  font-size: max($type_base_size - 6, 12px);
+  font-size: $type_base_size;
 
   @if ($buttonStyle == 'angled') {
     margin: 0 10px;
@@ -2223,9 +2233,7 @@ html input[disabled] {
   are enabled on product page
 ==============================================================================*/
 
-.shopify-payment-button {
-  margin-top: 10px;
-}
+
 
 .shopify-payment-button .shopify-payment-button__button--unbranded {
   display: block;
@@ -2761,9 +2769,9 @@ symbol {
   position: fixed;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;
-  top: 0;
+  top: 0px;
   bottom: 0;
-  max-width: 95%;
+  max-width: 100%;
   z-index: $zindexDrawer;
   color: $colorDrawerText;
   background-color: $colorDrawers;
@@ -2800,6 +2808,7 @@ symbol {
 }
 
 .drawer--left {
+
   width: $drawerNavWidth;
   left: -$drawerNavWidth;
 
@@ -2875,7 +2884,7 @@ symbol {
   width: 100%;
   padding: ($gutter / 2.6) 0;
   margin-bottom: 0;
-  border-bottom: 1px solid $colorDrawerBorder;
+  border-bottom: 1px solid black;
 
   @include media-query($medium-up) {
     height: $drawerHeaderHeightLarge;
@@ -2972,7 +2981,7 @@ symbol {
 }
 
 .drawer__scrollable {
-  padding-top: $gutter / 2;
+  padding-top: 25px;
   overflow: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -3667,8 +3676,8 @@ $color-blankstate-background: #e1e1e1;
 // Delay animations, used in drawers
 
 .appear-animation {
-  opacity: 0;
-  transform: translateY(60px);
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 @for $i from 1 to 20 {
@@ -3953,7 +3962,7 @@ $color-blankstate-background: #e1e1e1;
 
 .site-footer {
   padding-bottom: $gutter;
-  background-color: #193F47;
+  background-color: #193f48;
   color: #fff;
 
   @include media-query($medium-up) {
@@ -4681,10 +4690,10 @@ color:#fff;
 .site-header {
   position: relative;
   padding: 15px 0;
-  background: #b9cee9;
+  background: #82402a;
 
   @include media-query($medium-up) {
-    padding: 40px 0 20px 0;
+    padding: 40px 0 25px 0;
 
     .toolbar + .header-sticky-wrapper & {
       border-top: 1px solid rgba($colorNavText, 0.1);
@@ -4740,7 +4749,7 @@ color:#fff;
 
   .header-layout[data-logo-align="center"] & {
     margin-left: auto;
-    margin-right: auto;
+    margin-right: 22%;
     text-align: center;
   }
 
@@ -4883,7 +4892,7 @@ color:#fff;
 // Submit and cancel buttons
 
 .site-header__search-btn {
-  padding: 0 ($gutter / 2);
+  padding: 0 5px 0 15px;
 }
 
 @include media-query($medium-up) {
@@ -5461,11 +5470,11 @@ $predictiveGap: 10px;
 /*================ Mobile navigation ================*/
 
 .mobile-nav {
-  margin: (-$drawerGutterSmall) (-$drawerGutterSmall) 0 (-$drawerGutterSmall);
+  margin: 0;
 
   @include media-query($medium-up) {
-    margin-left: -$drawerGutterLarge;
-    margin-right: -$drawerGutterLarge;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   li {
@@ -5485,16 +5494,17 @@ $predictiveGap: 10px;
   // Background color on top level items so there is no
   // element overlap on subnav's CSS toggle animation
   .mobile-nav > & {
-    background-color: $colorDrawers;
+    background-color: #f1e0d0;
   }
 
   &:after {
+    display:none;
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    border-bottom: 1px solid $colorDrawerBorder;
+    border-bottom: 1px solid black;
   }
 }
 
@@ -5518,7 +5528,7 @@ $predictiveGap: 10px;
 .mobile-nav__toggle button,
 .mobile-nav__toggle .faux-button {
   color: $colorDrawerText;
-  padding: $gutter / 2;
+  padding: 2px;
   text-decoration: none;
 
   &:active {
@@ -5667,13 +5677,14 @@ $predictiveGap: 10px;
   margin: 15px 0 20px 0;
 
   @include media-query($medium-up) {
-    margin-left: -$drawerGutterSmall;
-    margin-right: -$drawerGutterSmall;
+    margin-left: 0;
+    margin-right: 0;
+    
   }
 
   a {
     display: block;
-    padding: 8px 30px;
+    padding: 8px 0px;
 
     .icon {
       position: relative;
@@ -5683,10 +5694,10 @@ $predictiveGap: 10px;
 }
 
 .mobile-nav__social-item {
-  -ms-flex: 0 1 33.33%;
-      flex: 0 1 33.33%;
-  text-align: center;
-  border: 1px solid $colorDrawerBorder;
+  -ms-flex: 0 1 13.33%;
+      flex: 0 1 13.33%;
+  text-align: start;
+  
   margin: 0 0 -1px;
 
   &:nth-child(3n-1) {
@@ -5723,10 +5734,10 @@ $predictiveGap: 10px;
   position: absolute;
   top: 50%;
   right: 0px;
-  width: 15px;
-  height: 15px;
-  background-color: $colorCartDot;
-  border: 2px solid $colorBody;
+  width: 8px;
+  height: 8px;
+  background-color: #193f48;
+  border: 2px solid #193f48;
   border-radius: 50%;
 
   // Slight position change with cart icon
@@ -6121,12 +6132,12 @@ $predictiveGap: 10px;
 
 .js-qty__adjust--plus {
   right: 0;
-  border-left: 1px solid darken($colorInputBg, 5%);
+ 
 }
 
 .js-qty__adjust--minus {
   left: 0;
-  border-right: 1px solid darken($colorInputBg, 5%);
+  
 }
 
 /*================ Qty selector in drawer ================*/
@@ -8370,15 +8381,17 @@ $z-index-hero-text: 4;
 .collection-filter__item--sort {
   -ms-flex: 0 1 50%;
       flex: 0 1 50%;
+   order: 3;
   padding-left: $gutter / 4;
 }
 
 @include media-query($small) {
   .collection-filter__item--count {
-    -ms-flex-order: 3;
-        order: 3;
+    -ms-flex-order: 1;
+        order: 1;
     -ms-flex: 1 1 100%;
-        flex: 1 1 100%;
+        flex: 1 1 50%;
+    margin:0px !important;
   }
 }
 
@@ -8765,7 +8778,7 @@ $label-bottom-margin: 12px;
   }
 
   input[type='radio']:checked + label {
-    box-shadow: 0 0 0 2px $colorTextBody;
+    box-shadow: 0 0 0 1px $colorTextBody;
   }
 }
 
@@ -8797,6 +8810,10 @@ $label-bottom-margin: 12px;
   display: block;
   margin-bottom: 10px;
   cursor: default;
+  font-weight: 300;
+    letter-spacing: .0rem;
+    font-size: 18px;
+  text-transform: capitalize;
 }
 
 .variant__label-info {
@@ -9025,7 +9042,7 @@ $label-bottom-margin: 12px;
   right: 10px;
   left: 10px;
   z-index: 2;
-  background-color: #193F47;
+  background-color: #193f48;
   color: $colorBtnPrimaryText;
   overflow: hidden;
   padding: 8px 5px;
@@ -9050,6 +9067,7 @@ $label-bottom-margin: 12px;
 
 @include media-query($small) {
   .grid-overflow-wrapper {
+        padding-bottom: 15px;
     overflow: hidden;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
@@ -9069,7 +9087,7 @@ $label-bottom-margin: 12px;
       white-space: normal;
 
       &:first-child {
-        margin-left: $page-width-gutter-small;
+        margin-left: 0;
       }
 
       &:last-child:after {
@@ -9943,7 +9961,7 @@ $testimonialImageSize: 100px;
   font-size: $type_base_size * 0.75;
   position: relative;
   text-align: center;
-  background-color: #193f47;
+  background-color: #193f48;
   color: $colorAnnouncementText;
   padding: 10px 0;
   @include media-query($medium-up) {
@@ -11475,8 +11493,12 @@ iframe.zoid-component-frame {
   }
 
   label {
+    text-transform: capitalize;
     display: block;
     margin-bottom: 10px;
+    font-weight: 100;
+    letter-spacing: .0rem;
+    font-size: 18px;
   }
 }
 
@@ -11817,7 +11839,7 @@ https://websensepro.com/blog/how-to-create-collapsible-accordion-for-product-des
 	 height: 7px;
 	 width: 7px;
 	 margin-right: 1rem;
-	 margin-left: 25rem;
+	 margin-left: 5rem;
 	 vertical-align: middle;
 	 border-right: 1px solid;
 	 border-bottom: 1px solid;
@@ -11844,10 +11866,7 @@ https://websensepro.com/blog/how-to-create-collapsible-accordion-for-product-des
     width: 100% !important; /* Make 1st and 2nd images full width */
   }
 
-  .grid--collection:nth-child(4n-1),
-  .grid--collection:nth-child(4n) {
-    width: 50% !important; /* Make 3rd and 4th images 50% width */
-  }
+ 
 }
 
 /* Target the mobile footer menu */
