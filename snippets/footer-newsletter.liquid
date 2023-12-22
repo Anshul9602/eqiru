@@ -1,91 +1,69 @@
 <link href="https://fonts.googleapis.com/css?family=Josefin Sans" rel="stylesheet">
 <style>
-  .cus{
-        color: #1A3F47;
-      font-size: 22px;
-        font-weight: 300;
+  .cus {
+    color: #1A3F47;
+    font-size: 22px;
+    font-weight: 300;
     line-height: 1;
   }
-    .cus1{
-        color: #1A3F47;
-      font-family: Aire Bold Std;
-      font-size: 38px;
-        font-weight: 500;
+
+  .cus1 {
+    color: #1A3F47;
+    font-family: Aire Bold Std;
+    font-size: 38px;
+    font-weight: 500;
   }
 </style>
 <div class="row" style="    display: flex;    align-items: end;">
-  <div class="off"style="width:50%;">
+  <div class="off" style="width:50%;">
     <p class="h1 footer__title  cus1">10% OFF</p>
     <p class="h4 footer__title cus">your first order?</p>
   </div>
   <div class="footer__item-padding " style="width:100%;padding-right: 10px;">
     {% if block.settings.show_footer_title %}
-      <p class="h4 footer__title small--hide">{{ block.settings.title }}</p>
-      <button
-        type="button"
-        class="h4 footer__title collapsible-trigger collapsible-trigger-btn medium-up--hide"
-        aria-controls="Footer-{{ block.id }}"
-      >
-        {{ block.settings.title }}
-        {% include 'collapsible-icons' %}
-      </button>
+    <p class="h4 footer__title small--hide">{{ block.settings.title }}</p>
+    <button type="button" class="h4 footer__title collapsible-trigger collapsible-trigger-btn medium-up--hide"
+      aria-controls="Footer-{{ block.id }}">
+      {{ block.settings.title }}
+      {% include 'collapsible-icons' %}
+    </button>
     {% endif %}
-    <div
-      {% if block.settings.show_footer_title %}
-        id="Footer-{{ block.id }}"class="collapsible-content collapsible-content--small"
-      {% endif %}
-    >
+    <div {% if block.settings.show_footer_title %} id="Footer-{{ block.id }}"
+      class="collapsible-content collapsible-content--small" {% endif %}>
       <div class="collapsible-content__inner">
-        <div class="footer__collapsible{% unless block.settings.show_footer_title %} footer_collapsible--disabled{% endunless %}">
+        <div
+          class="footer__collapsible{% unless block.settings.show_footer_title %} footer_collapsible--disabled{% endunless %}">
           {% if block.settings.text %}
-            {{ block.settings.text }}
+          {{ block.settings.text }}
           {% endif %}
 
           {% form 'customer', id: 'newsletter-footer' %}
-            {% if form.posted_successfully? %}
-              <div class="note note--success">{{ 'general.newsletter_form.newsletter_confirmation' | t }}</div>
-            {% endif %}
-            {% if form.context == 'footer' %}
-              {% if form.errors %}
-                {{ form.errors | default_errors }}
-              {% endif %}
-            {% endif %}
+          {% if form.posted_successfully? %}
+          <div class="note note--success">{{ 'general.newsletter_form.newsletter_confirmation' | t }}</div>
+          {% endif %}
+          {% if form.context == 'footer' %}
+          {% if form.errors %}
+          {{ form.errors | default_errors }}
+          {% endif %}
+          {% endif %}
 
-            <label for="Email-{{ block.id }}" class="hidden-label">
-              {{- 'general.newsletter_form.newsletter_email' | t -}}
-            </label>
-            <input
-              type="hidden"
-              name="contact[tags]"
-              value="prospect,newsletter"
-            >
-            <input
-              type="hidden"
-              name="contact[context]"
-              value="footer"
-            >
-            <div class="footer__newsletter">
-              <input
-                type="email"
-                value="{% if customer %}{{ customer.email }}{% endif %}"
-                placeholder="E-mail"
-                name="contact[email]"
-                id="Email-{{ block.id }}"
-                class="footer__newsletter-input"
-                autocorrect="off"
-                autocapitalize="off"
-              >
-            </div>
-            <button
-              type="submit"
-              class="footer__newsletter-btn"
-              name="commit"
-            >
-              Submit
-              <span class="footer__newsletter-btn-label">
-                {{ 'general.newsletter_form.submit' | t }}
-              </span>
-            </button>
+          <label for="Email-{{ block.id }}" class="hidden-label">
+            {{- 'general.newsletter_form.newsletter_email' | t -}}
+          </label>
+          <input type="hidden" name="contact[tags]" value="prospect,newsletter">
+          <input type="hidden" name="contact[context]" value="footer">
+          <div class="col-md-12" style="display: flex;">
+          <div class="footer__newsletter">
+            <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="E-mail"
+              name="contact[email]" id="Email-{{ block.id }}" class="footer__newsletter-input" autocorrect="off"
+              autocapitalize="off">
+          </div>
+          <button type="submit" class="footer__newsletter-btn" name="commit">
+            Submit
+            <span class="footer__newsletter-btn-label">
+              {{ 'general.newsletter_form.submit' | t }}
+            </span>
+          </button></div>
           {% endform %}
         </div>
       </div>
