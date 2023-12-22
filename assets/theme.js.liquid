@@ -1,8 +1,29 @@
 window.theme = window.theme || {};
 
+
 if (console && console.log) {
   console.log('Impulse theme ('+theme.settings.themeVersion+') by ARCHΞTYPE | Learn more at https://archetypethemes.co');
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  var fadeSections = document.querySelectorAll(".fade-section");
+
+  window.addEventListener("scroll", function () {
+    fadeSections.forEach(function (fadeSection) {
+      var sectionTop = fadeSection.getBoundingClientRect().top;
+      var windowInnerHeight = window.innerHeight;
+
+      if (sectionTop < windowInnerHeight / 2) {
+        fadeSection.classList.add("fade-in");
+        fadeSection.querySelectorAll(".fade-item").forEach(function (item) {
+          item.classList.add("fade-in");
+        });
+      }
+    });
+  });
+});
+
 
 window.lazySizesConfig = window.lazySizesConfig || {};
 lazySizesConfig.expFactor = 4;
@@ -1317,7 +1338,7 @@ lazySizesConfig.expFactor = 4;
           var animation_row = 1;
   
           $.each(cart.items, function(index, product) {
-  
+          
             var prodImg;
             if (product.image !== null) {
               prodImg = product.image.replace(/(\.[^.]*)$/, "_180x$1");
@@ -1386,8 +1407,13 @@ lazySizesConfig.expFactor = 4;
             cartDiscountsApplied: cart.cart_level_discount_applications.length === 0 ? false : true,
             totalPrice: theme.Currency.formatMoney(cart.total_price, theme.settings.moneyFormat)
           };
-  
-          $(selectors.container).append(this.template(data));
+
+        var source = $("#CartTemplate").html();
+        var template = Handlebars.compile(source);
+        var html = template(data);
+        $(selectors.container).append(html);
+   
+       
         }
   
         this.status.loaded = true;
@@ -1398,7 +1424,7 @@ lazySizesConfig.expFactor = 4;
         if (window.Shopify && Shopify.StorefrontExpressButtons) {
           Shopify.StorefrontExpressButtons.initialize();
         }
-  
+         
         // If specifically asked, open the cart drawer (only happens after product added from form)
         if (openDrawer === true) {
           this.drawer.open(false, returnFocusEl);
@@ -6447,3 +6473,99 @@ $(function() {
 		$(this).toggleClass("is-active").children(".accordion-panel").slideToggle("ease-out");
 	});
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  var header = document.getElementById("shopify-section-header");
+var cat = document.getElementById("cat_c");
+  window.addEventListener("scroll", function () {
+    // Check if the screen width is greater than or equal to a desktop width (e.g., 768 pixels)
+    // if (window.innerWidth >= 768) {
+      if (window.scrollY >= 300) {
+        header.classList.add("fixed-header");
+        cat.classList.add("d-none");
+      } else {
+        header.classList.remove("fixed-header");
+        cat.classList.remove("d-none");
+      }
+    // }
+  });
+});
+
+function scrollToTop() {
+  // Scroll to the top of the page smoothly
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+document.addEventListener("DOMContentLoaded", function () {
+  var customButton = document.querySelector(".custom_butt1");
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY >= 300) {
+      // Add the "newClass" to the element
+      customButton.classList.add("custom_butt");
+      // Remove the "custom_butt1" class from the element
+      customButton.classList.remove("custom_butt1");
+    } else {
+      // If scrolling back up, you can revert the changes
+      customButton.classList.add("custom_butt1");
+      customButton.classList.remove("custom_butt");
+    }
+  });
+});
+
+
+
+
+// Custom btn
+  function handleClick() {
+ 
+    // alert("Button clicked!");
+    var secondButton = document.querySelector(".addbt");
+      console.log(secondButton);
+    secondButton.click();
+    
+    
+
+  }
+
+  // Get a reference to the button element
+  var button = document.getElementById("custom_add");
+
+  // Add a click event listener to the button that calls the handleClick function
+  button.addEventListener("click", handleClick);
+
+
+  function handleClickbuy1() {
+  console.log("secondButton");
+  var secondButton = document.querySelector(".addbt");
+  console.log(secondButton);
+  
+  // Click the button
+  secondButton.click();
+
+  // Delay the redirection by 1 second
+  setTimeout(function() {
+    window.location.href = "https://eqiru.com/cart";
+  }, 1000); // 1000 milliseconds = 1 second
+}
+
+  // Get a reference to the button element
+  var button2 = document.getElementById("custom_buy");
+
+  // Add a click event listener to the button that calls the handleClick function
+  button2.addEventListener("click", handleClickbuy1);
+
+  var button3 = document.getElementById("mainbuy");
+
+  // Add a click event listener to the button that calls the handleClick function
+  button3.addEventListener("click", handleClickbuy1);
+
+// mob button
+
+
+ 
+  
