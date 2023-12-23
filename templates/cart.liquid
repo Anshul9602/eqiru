@@ -84,7 +84,7 @@
                         {% endfor %}
                       {% endif %}
 
-                      <p class="cart__product-meta">
+                      <p class="cart__product-meta" style="padding-top: 10px;">
                         <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0" class="btn btn--secondary btn--small small--hide">
                           {{ 'cart.general.remove' | t }}
                         </a>
