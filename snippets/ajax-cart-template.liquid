@@ -1,18 +1,19 @@
 <style>
-  .cart__item p {
+  
+
+  .cart__item p{
     margin: 0 0 5px;
   }
-
-  .cart__item .newf {
-    font-size: 12px;
+  .cart__item .newf{
+    font-size:12px;
   }
-
   .drawer__scrollable {
     -webkit-overflow-scrolling: touch;
     overflow: hidden;
     overflow-y: auto;
     padding-top: var(--drawer-gutter);
-  }
+}
+
 </style>
 
 
@@ -35,7 +36,11 @@
               {{#if variation}}
                 <p class="ajaxcart__product-variation newf">{{ variation }}</p>
               {{/if}}
-              <p class="ajaxcart__product-quantity newf">Quantity: {{ itemQty }}</p>
+              
+              <p class="ajaxcart__product-quantity newf">Quantity: <button onclick="updateQuantity('{{ item.key }}', 'decrease')">-</button> <input
+              style="border: none; padding: 0; font-weight: 100;max-width: 40px;" type="number" name="updates[]"
+              id="updates_{{ item.key }}" class="cart__product-qty" value="{{ itemQty }}" >
+            <button onclick="updateQuantity('{{ item.key }}', 'increase')">+</button></p>
               <p class="ajaxcart__product-price">{{ price }}</p>
               {{#if properties}}
                 <div class="ajaxcart__product-properties">
