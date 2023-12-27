@@ -13,6 +13,11 @@
     overflow-y: auto;
     padding-top: var(--drawer-gutter);
   }
+
+
+
+
+
 </style>
 
 
@@ -41,15 +46,9 @@
               
                         </a>  
               
-              <p class="ajaxcart__product-quantity newf">Quantity: <span style="border: 1px solid;    padding: 1px;"> <button onclick="updateQuantity('{{ item.key }}', 'decrease')" style="border-right: 3px solid;">-</button> <input style="border: none; padding: 0; font-weight: 100;max-width: 40px;" 
-                type="text" 
-                name="updates[]" 
-                id="updates_{{ item.key }}" 
-                class="cart__product-qty" 
-                value="{{ itemQty }}" 
-                min="0" 
-                data-id="{{ item.key }}">
-         <button onclick="updateQuantity('{{ item.key }}', 'increase')" style="border-left: 1px solid;">+</button></span></p>
+              <p class="ajaxcart__product-quantity newf">Quantity: 
+                {{ itemQty }}
+                </p>
               <p class="ajaxcart__product-price">{{ price }}</p>
               {{#if properties}}
                 <div class="ajaxcart__product-properties">

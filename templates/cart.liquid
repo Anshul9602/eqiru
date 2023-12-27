@@ -81,7 +81,7 @@
                       {{ 'cart.general.remove' | t }}
                     </a>
                     <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0"
-                      style="    margin-top: 10px;" class="btn btn--small medium-up--hide">
+                      style="margin-top: 10px;background: none;color: #193f48;    text-decoration: underline;" class="btn btn--small medium-up--hide">
                       <small>{{ 'cart.general.remove' | t }}</small>
                     </a>
                   </p>
@@ -90,11 +90,11 @@
               </div>
             </div>
 
-            <div class="grid__item medium-up--two-fifths">
+            <div class="grid__item medium-up--two-fifths" >
               <div class="grid grid--full cart__row--table-large">
 
                 <div class="grid__item one-third medium-up--text-start">
-                  <label class="medium-up--hide">
+                  <label class="medium-up--hide"style="text-transform: capitalize;">
                     {{ 'cart.label.price' | t }}
                   </label>
                   {% if item.original_price != item.final_price %}
@@ -131,20 +131,20 @@
 
                 <div class="grid__item one-third text-start">
 
-                  <label for="updates_{{ item.key }}" class="medium-up--hide">{{ 'cart.label.quantity' | t }}</label>
+                  <label for="updates_{{ item.key }}" class="medium-up--hide"style="text-transform: capitalize;">{{ 'cart.label.quantity' | t }}</label>
                   <label for="updates_{{ item.key }}" class="visually-hidden">{{ 'cart.label.quantity' | t }}</label>
-                  <span style="border: 1px solid;    padding: 3px;">
-                  <button onclick="updateQuantity('{{ item.key }}', 'decrease')" style="border-right: 1px solid;color: black;">-</button> <input
+                  <span style="border: 1px solid #e1e1e1;    padding: 3px;">
+                  <button onclick="updateQuantity('{{ item.key }}', 'decrease')" style="border-right: 1px solid #e1e1e1;color: black;">-</button> <input
                     style="border: none; padding: 0; font-weight: 100;max-width: 40px;" type="text" name="updates[]"
                     id="updates_{{ item.key }}" class="cart__product-qty" value="{{ item.quantity }}" min="0"
                     data-id="{{ item.key }}">
-                  <button onclick="updateQuantity('{{ item.key }}', 'increase')" style="border-left: 1px solid;color: black;">+</button></span>
+                  <button onclick="updateQuantity('{{ item.key }}', 'increase')" style="border-left: 1px solid #e1e1e1;color: black;">+</button></span>
 
 
                 </div>
 
                 <div class="grid__item one-third text-end" style="padding-right:10px;    text-align: end;">
-                  <label class="medium-up--hide">
+                  <label class="medium-up--hide"style="text-transform: capitalize;">
                     {{ 'cart.label.total' | t }}
                   </label>
                   {% if item.original_line_price != item.final_line_price %}
