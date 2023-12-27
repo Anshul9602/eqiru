@@ -6,23 +6,7 @@ if (console && console.log) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  var fadeSections = document.querySelectorAll(".fade-section");
 
-  window.addEventListener("scroll", function () {
-    fadeSections.forEach(function (fadeSection) {
-      var sectionTop = fadeSection.getBoundingClientRect().top;
-      var windowInnerHeight = window.innerHeight;
-
-      if (sectionTop < windowInnerHeight / 2) {
-        fadeSection.classList.add("fade-in");
-        fadeSection.querySelectorAll(".fade-item").forEach(function (item) {
-          item.classList.add("fade-in");
-        });
-      }
-    });
-  });
-});
 
 
 window.lazySizesConfig = window.lazySizesConfig || {};
