@@ -2,8 +2,6 @@
     margin: 0 -9%;
 }
 
-
-
 #expo-section textarea {
     min-height: 27px;
     height: 48px;
@@ -53,14 +51,6 @@
     transition: transform 1.6s;
 }
 
-#shopify-section-8480d876-1bfd-4c45-a0f8-ffa45f79aa88 .custom__item-inner--image:hover {
-    -ms-transform: scale(1.2);
-    /* IE 9 */
-    -webkit-transform: scale(1.2);
-    /* Safari 3-8 */
-    transform: scale(1.2);
-}
-
 #shopify-section-f88330db-b5c8-43f6-8399-a750c2340d9e {
     display: none;
 }
@@ -74,19 +64,16 @@
     top: 150px;
     padding-top: 20px;
     background: #fff;
+    height: fit-content;
 }
 
 .float {
     position: fixed;
-
     bottom: 30px;
     right: 5%;
-
     color: #FFF;
-
     text-align: center;
     font-size: 40px;
-
     z-index: 100;
 }
 
@@ -103,27 +90,6 @@
     transition: top 5.3s ease;
     /* Add a smooth transition effect to all properties */
 }
-
-. {
-    opacity: 0;
-}
-
-. {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-..fade-in {
-    opacity: 1;
-}
-
-..fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
 .prose a {
     text-decoration: auto;
 }
@@ -321,11 +287,12 @@ header a.site-nav__dropdown-link.highlighted_menu:after {
 }
 
 .ne .page-width {
-    padding: 30px !important;
+    padding: 30px 0 !important;
+    max-width: 90%;
 }
 
 .ne .row {
-    width: 95%;
+    width: 100%;
     margin: auto;
 }
 
@@ -469,7 +436,7 @@ ul {
         top: auto !important;
         bottom: 0px !important;
         padding: 10px;
-        margin-left: -10% !important;
+
 
 
     }
