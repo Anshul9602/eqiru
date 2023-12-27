@@ -1,3 +1,16 @@
+<style>@media screen and (max-width: 768px) {
+.cartm{
+font-size:22px !important;
+}
+.subt{
+font-size:14px !important;
+}
+  .cart__checkout{
+    max-height:29px !important;
+  }
+}</style>
+
+
 <div class="page-width page-content" style="    max-width: 90%;margin: auto;">
 
   {%- include 'breadcrumbs' -%}
@@ -6,9 +19,9 @@
     <div class="grid__item">
       {% if cart.item_count > 0 %}
       <header class="section-header">
-        <h1 class="section-header__title">{{ 'cart.general.title' | t }}</h1>
+        <h1 class="section-header__title cartm">{{ 'cart.general.title' | t }}</h1>
         <div class="rte text-spacing">
-          <p>{{ 'cart.general.continue_browsing_html' | t: url: routes.all_products_collection_url }}</p>
+         <a href="/"> <p>Continue shopping</p></a>
         </div>
       </header>
 
@@ -77,11 +90,11 @@
 
                   <p class="cart__product-meta" style="padding-top: 10px;">
                     <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0"
-                      class="btn btn--secondary btn--small small--hide">
+                      class="  small--hide"style="margin-top: 10px;background: none;color: #193f48;    text-decoration: underline;" >
                       {{ 'cart.general.remove' | t }}
                     </a>
                     <a href="{{ routes.cart_change_url }}?line={{ forloop.index }}&amp;quantity=0"
-                      style="margin-top: 10px;background: none;color: #193f48;    text-decoration: underline;" class="btn btn--small medium-up--hide">
+                      style="margin-top: 10px;background: none;color: #193f48;    text-decoration: underline;" class=" medium-up--hide">
                       <small>{{ 'cart.general.remove' | t }}</small>
                     </a>
                   </p>
@@ -94,7 +107,7 @@
               <div class="grid grid--full cart__row--table-large">
 
                 <div class="grid__item one-third medium-up--text-start">
-                  <label class="medium-up--hide"style="text-transform: capitalize;">
+                  <label class="medium-up--hide"style="text-transform: capitalize;    font-size: 13px;">
                     {{ 'cart.label.price' | t }}
                   </label>
                   {% if item.original_price != item.final_price %}
@@ -131,7 +144,7 @@
 
                 <div class="grid__item one-third text-start">
 
-                  <label for="updates_{{ item.key }}" class="medium-up--hide"style="text-transform: capitalize;">{{ 'cart.label.quantity' | t }}</label>
+                  <label for="updates_{{ item.key }}" class="medium-up--hide"style="text-transform: capitalize;    font-size: 13px;">{{ 'cart.label.quantity' | t }}</label>
                   <label for="updates_{{ item.key }}" class="visually-hidden">{{ 'cart.label.quantity' | t }}</label>
                   <span style="border: 1px solid #e1e1e1;    padding: 3px;">
                   <button onclick="updateQuantity('{{ item.key }}', 'decrease')" style="border-right: 1px solid #e1e1e1;color: black;">-</button> <input
@@ -144,7 +157,7 @@
                 </div>
 
                 <div class="grid__item one-third text-end" style="padding-right:10px;    text-align: end;">
-                  <label class="medium-up--hide"style="text-transform: capitalize;">
+                  <label class="medium-up--hide"style="text-transform: capitalize;    font-size: 13px;">
                     {{ 'cart.label.total' | t }}
                   </label>
                   {% if item.original_line_price != item.final_line_price %}
@@ -189,7 +202,7 @@
               {% endif %}
               <div class="grid grid--full cart__row--table">
                 <div class="grid__item one-half">
-                  <p class="h4 medium-up--text-right" style="    text-align: start;">{{ 'cart.general.subtotal' | t }}
+                  <p class="h4 medium-up--text-right subt" style="font-size: 18px;text-align: start;letter-spacing: 1px;font-weight: 500;text-transform: capitalize;">{{ 'cart.general.subtotal' | t }}
                   </p>
                 </div>
                 <div class="grid__item one-half" style="padding-right:0px;">
@@ -219,7 +232,7 @@
                 </button>
                 <button type="submit" name="checkout"
                   class="btn cart__checkout{% if settings.cart_terms_conditions_enable %} cart__checkout--page{% endif %}"
-                  style="max-height:41px !important;">
+                  style="max-height:41px;    cursor: pointer;">
                   {{ 'cart.general.checkout' | t }}
                 </button>
 
